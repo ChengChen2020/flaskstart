@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>24点</title>
+    <link rel="stylesheet" href="../static/demo.css">
+</head>
+<body>
+<div class="main">
+    <div class="bg bg-blur"></div>
+    <div class="content">
+        <div class="bar">
+            <a href="{{ url_for('index')}}">Home</a> ||
+            <a href="{{ url_for('add')}}">Arithmetic</a> ||
+            <a href="{{ url_for('upload')}}">Text extraction</a> ||
+            <a href="{{ url_for('dot24') }}">Calc24</a> ||
+            <a href="http://ccjulius.com/">Personal link page</a>
+        </div>
+
+        <div class="form">
+            <form method="post" style="font-size: larger">
+                {{ form.csrf_token() }}
+                {{ form.param1.label }}{{ form.param1 }}
+                {{ form.param2.label }}{{ form.param2 }}<br>
+                {{ form.param3.label }}{{ form.param3 }}
+                {{ form.param4.label }}{{ form.param4 }}<br>
+                {{ form.submit }}<br>
+                {{ expr }}<br>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

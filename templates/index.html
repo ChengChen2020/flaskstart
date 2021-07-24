@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cc的小破站</title>
+    <link rel="stylesheet" href="../static/demo.css">
+    <script src="../static/demo.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+<body onload="changeUser()">
+<div class="main">
+    <div class="bg bg-blur"></div>
+    <div class="content">
+        <div class="bar">
+            <a href="{{ url_for('index')}}">Home</a> ||
+            <a href="{{ url_for('add')}}">Arithmetic</a> ||
+            <a href="{{ url_for('upload')}}">Text extraction</a> ||
+            <a href="{{ url_for('dot24') }}">Calc24</a> ||
+            <a href="http://ccjulius.com/">Personal link page</a>
+        </div>
+
+        <div style="text-align: center; font-size: larger; font-family: serif">
+            <h2 class="animation"><b id="user" >... </b> 欢迎来到这个小破站~</h2>
+        </div>
+
+        <div class="form">
+            <form method="post">
+                {{ form.csrf_token() }}
+                {{ form.author.label }}{{ form.author }}<br>
+                {{ form.email.label }}{{ form.email }}<br>
+                {{ form.book.label }}{{ form.book }}<br>
+                {{ form.input }}<br>
+                {% for message in get_flashed_messages() %}
+                    {{ message }}
+                {% endfor %}
+            </form>
+        </div>
+
+        <div class="form">
+            <button onclick="queen([0,0,0,0,0,0,0,0],0);changeAnswer()">八皇后问题</button>
+            <br>
+            <b id="result" >...</b>
+        </div>
+
+        {# 遍历作者,再遍历书籍 #}
+        <div class="output">
+            <ul>
+                {% for author in authors %}
+                    <li>{{ author.name }}  <a href="{{ url_for('delete_author', author_id=author.id) }}">删除</a></li>
+                    <ul>
+                        {% for book in author.books %}
+                            <li>{{ book.name }}  <a href="{{ url_for('delete_book', book_id=book.id) }}">删除</a></li>
+                        {% else %}
+                            <li>无</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.bg {
+    position:fixed;
+    background: url('../static/jarvis.png');
+    height: 100%;
+    width: 100%;
+}
+.bg-blur {
+    float: left;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: goldenrod;
+    transition-duration: 300ms;
+}
+
+.output {
+    line-height: 30px;
+    font-family: Kefa, serif;
+    font-size: large;
+    text-shadow: 10px 10px 8px grey;
+}
+
+.form {
+    margin-top: 50px;
+    font-size: medium;
+    text-align: center;
+    line-height: 30px;
+}
+
+.animation {
+    font-size: 40px;
+    animation-duration: 300ms;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-direction: alternate;
+}
+@keyframes blink {
+    from {
+        color: red;
+    }
+    50% {
+        color: violet;
+    }
+    to {
+        color: blue;
+    }
+}
+
+.bar {
+    font-family: "Comic Sans MS", serif;
+    font-size: medium;
+    text-align: center;
+    height: max-content;
+    background-color: #555254;
+}
+
+.image {
+    text-align: center;
+    margin-top: 30px;
+}

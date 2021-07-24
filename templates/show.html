@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提取结果</title>
+    <link rel="stylesheet" href="../static/demo.css">
+</head>
+<body>
+<div class="bg">
+</div>
+<div class="main">
+    <div class="bg bg-blur"></div>
+    <div class="content">
+        <div class="bar">
+            <a href="{{ url_for('index')}}">Home</a> ||
+            <a href="{{ url_for('add')}}">Arithmetic</a> ||
+            <a href="{{ url_for('upload')}}">Text extraction</a> ||
+            <a href="{{ url_for('dot24') }}">Calc24</a> ||
+            <a href="http://ccjulius.com/">Personal link page</a>
+        </div>
+        <div class="image">
+            <img width=200 alt="身份证" src={{ url }}>
+        </div>
+        <hr>
+        <pre class="output" style="text-align: center">{{ info }}</pre>
+    </div>
+</div>
+</body>
+</html>

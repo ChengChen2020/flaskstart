@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四则运算</title>
+    <link rel="stylesheet" href="../static/demo.css">
+</head>
+<body>
+<div class="main">
+    <div class="bg bg-blur"></div>
+    <div class="content">
+        <div class="bar">
+            <a href="{{ url_for('index')}}">Home</a> ||
+            <a href="{{ url_for('add')}}">Arithmetic</a> ||
+            <a href="{{ url_for('upload')}}">Text extraction</a> ||
+            <a href="{{ url_for('dot24') }}">Calc24</a> ||
+            <a href="https://ccjulius.com/">Personal link page</a>
+        </div>
+        <div class="form">
+            <form method="post">
+                {{ add_form.csrf_token() }}
+                {{ add_form.param1.label }}{{ add_form.param1 }} {{ '+' }}
+                {{ add_form.param2.label }}{{ add_form.param2 }} {{ '=' }}
+                {{ c }}
+                {{ add_form.add }}<br>
+            </form>
+            <form method="post">
+                {{ diff_form.csrf_token() }}
+                {{ diff_form.param3.label }}{{ diff_form.param3 }} {{ '-' }}
+                {{ diff_form.param4.label }}{{ diff_form.param4 }} {{ '=' }}
+                {{ d }}
+                {{ diff_form.sub }}<br>
+            </form>
+            <form method="post">
+                {{ mul_form.csrf_token() }}
+                {{ mul_form.param5.label }}{{ mul_form.param5 }} {{ '*' }}
+                {{ mul_form.param6.label }}{{ mul_form.param6 }} {{ '=' }}
+                {{ e }}
+                {{ mul_form.mul }}<br>
+            </form>
+            <form method="post">
+                {{ div_form.csrf_token() }}
+                {{ div_form.param7.label }}{{ div_form.param7 }} {{ '/' }}
+                {{ div_form.param8.label }}{{ div_form.param8 }} {{ '=' }}
+                {{ f }}
+                {{ div_form.div }}<br>
+                {% for message in get_flashed_messages() %}
+                    {{ message }}
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
